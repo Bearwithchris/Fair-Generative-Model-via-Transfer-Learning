@@ -1,0 +1,8 @@
+{
+  "pathDB": "../../celebA-HQ/data256x256",
+  "config": {},
+  "miniBatchScheduler": {
+    "7": 12,
+    "8": 8
+  }
+}

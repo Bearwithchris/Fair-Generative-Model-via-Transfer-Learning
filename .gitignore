@@ -1,0 +1,7 @@
+
+*.pth
+*.jpg
+*.tar
+*.pt
+*.npz
+*.csv
