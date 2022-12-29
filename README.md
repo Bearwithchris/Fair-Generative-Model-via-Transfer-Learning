@@ -70,7 +70,18 @@ python train.py --shuffle --batch_size 128 --parallel --num_G_accumulations 1 --
 --loss_type hinge --seed 777 --num_epochs 200 --start_eval 40 --reweight 0 --alpha 1.0 --bias 90_10 --perc 1.0 --name_suffix celeba_90_10_perc1.0_pretrained
 ```
 
-#4) Perform linear probing
+#4) FairTL
+> To perform fairTL we select the new "./weights/###_copy0" pre-trained weights and copy them into a new file of your own naming choice e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob
+> Include --dummy 2 to train on the uniform D_ref dataset only 
+```
+python train.py --shuffle --batch_size 128 --parallel --num_G_accumulations 1 --num_D_accumulations 1 \
+--num_D_steps 2 --G_lr 5e-4 --D_lr 2e-4 --dataset CA64 --data_root ../../data --G_ortho 0.0 --G_attn 0 \
+--D_attn 0 --G_init N02 --D_init N02 --ema --use_ema --ema_start 1000 --save_every 1000 --test_every 1000 --num_best_copies 2 --num_save_copies 1 \
+--loss_type hinge --seed 777 --num_epochs 300 --start_eval 40 --reweight 0 --alpha 1.0 --bias 60_40 --perc 1.0 --name_suffix celeba_90_10_perc1.0_pretrained\
+--resumePaused --load_weight copy0 --dummy 2
+```
+
+#5) (FairTL++) Perform linear probing
 > To perform linear probing we select the new "./weights/###_copy0" pre-trained weights and copy them into a new file of your own naming choice e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob
 > Include --dummy 2 to train on the uniform D_ref dataset only 
 ```
@@ -78,10 +89,10 @@ python train_LP.py --shuffle --batch_size 8 --parallel --num_G_accumulations 1 -
 --num_D_steps 2 --G_lr 5e-4 --D_lr 2e-4 --dataset CA64 --data_root ../../data --G_ortho 0.0 --G_attn 0 \
 --D_attn 0 --G_init N02 --D_init N02 --ema --use_ema --ema_start 1000 --save_every 1000 --test_every 1000 --num_best_copies 2 --num_save_copies 1 \
 --loss_type hinge --seed 777 --num_epochs 200 --start_eval 40 --reweight 0 --alpha 1.0 --bias 90_10 --perc 1.0 --name_suffix celeba_90_10_perc1.0_pretrained\
---resume --load_weights=copy0 --dummy 2
+--resumePaused --load_weights=copy0 --dummy 2
 ```
 
-#5) Perform Fine Tuning
+#6) (FairTL++) Perform Fine Tuning
 > Similarly select the new "./weights/###_copy0" weights and copy them into a new file e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob_Fine_tuning
 > Include --dummy 2 to train on the uniform D_ref dataset only 
 ```
@@ -89,7 +100,7 @@ python train_FT.py --shuffle --batch_size 8 --parallel --num_G_accumulations 1 -
 --num_D_steps 2 --G_lr 5e-4 --D_lr 2e-4 --dataset CA64 --data_root ../../data --G_ortho 0.0 --G_attn 0 \
 --D_attn 0 --G_init N02 --D_init N02 --ema --use_ema --ema_start 1000 --save_every 1000 --test_every 1000 --num_best_copies 2 --num_save_copies 1 \
 --loss_type hinge --seed 777 --num_epochs 200 --start_eval 40 --reweight 0 --alpha 1.0 --bias 90_10 --perc 1.0 --name_suffix celeba_90_10_perc1.0_pretrained\
---resume --load_weights=copy0 --dummy 2
+--resumePaused --load_weights=copy0 --dummy 2
 ```
 
 
