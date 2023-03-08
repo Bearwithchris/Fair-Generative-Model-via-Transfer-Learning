@@ -140,12 +140,12 @@ python train_attribute_clf.py -attribute *SA*
 >Fill *training datafile* with output file from 2)
 >Fill *network pickle file*
 ```
-python train_2D_LP.py --outdir=~/training-runs --data=~/mydataset/*training datafile* --gpus=1 --network=https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-ffhq-256x256.pkl --aug=noaug --kimg 200
+python train_2D_LP.py --outdir=~/training-runs --data=~/mydataset/*training datafile* --gpus=1 --resume=https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-ffhq-256x256.pkl --aug=noaug --kimg 200
 ``` 
 followed by fine-tuining:
 >*network pickle file* is the output of the LP file
 ```
-python train_2D.py --outdir=~/training-runs --data=~/mydataset/*training datafile* --gpus=1 --network=*network pickle file* --aug=noaug --kimg 800
+python train_2D.py --outdir=~/training-runs --data=~/mydataset/*training datafile* --gpus=1 --resume=*network pickle file* --aug=noaug --kimg 800
 ``` 
 
 #4)Measuring Fairness and FID 
