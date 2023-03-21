@@ -47,7 +47,7 @@ Note that the best density ratio classifier will be saved in its corresponding d
 
 
 #2) To Train the Baseline Model
-## Use `./BIGGAN/src/Base_imp_weight` for baseline and `./BIGGAN/src/Tfl_2D_LP_FT` for our proposed work
+## Use `./BIGGAN/src/Base_imp_weight` for baseline and `./BIGGAN/src/FairGAN++` for our proposed work
 > Use --reweight 1 for Choi et.al Importance-weights
 > Select the --perc setting e.g. {0.25,0.1,0.05,0.025}
 > Select the --bias settings e.g. {90_10,multi}, if you are testing multi you have to append --multi 1 for the model to reference the correct FD classifier
@@ -58,8 +58,8 @@ python train.py --shuffle --batch_size 128 --parallel --num_G_accumulations 1 --
 --loss_type hinge --seed 777 --num_epochs 200 --start_eval 40 --reweight 1 --alpha 1.0 --bias 90_10 --perc 1.0 --name_suffix celeba_90_10_perc1.0_Baseline
 ```
 
-#3) To Train the Pre-trained Model
-## Use `./BIGGAN/src/FairGAN++` for baseline and `./BIGGAN/src/Tfl_2D_LP_FT` for our proposed work
+#3) To Train the Pre-trained Model for fairTL++ and fairTL
+## Use `./BIGGAN/src/FairGAN++` for  our proposed work
 > Use --reweight 0 for regular traing on the reference + bias data
 > Select the perc setting e.g. {0.25,0.1,0.05,0.025}
 > Select the --bias settings e.g. {90_10,multi}, if you are testing multi you have to append --multi 1 for the model to reference the correct FD classifier
@@ -71,6 +71,7 @@ python train.py --shuffle --batch_size 128 --parallel --num_G_accumulations 1 --
 ```
 
 #4) FairTL
+## Use `./BIGGAN/src/FairGAN++` for  our proposed work
 > To perform fairTL we select the new "./weights/###_copy0" pre-trained weights and copy them into a new file of your own naming choice e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob
 > Include --dummy 2 to train on the uniform D_ref dataset only 
 ```
@@ -82,6 +83,7 @@ python train.py --shuffle --batch_size 8 --parallel --num_G_accumulations 1 --nu
 ```
 
 #5) (FairTL++) Perform linear probing
+## Use `./BIGGAN/src/FairGAN++` for  our proposed work
 > To perform linear probing we select the new "./weights/###_copy0" pre-trained weights and copy them into a new file of your own naming choice e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob
 > Include --dummy 2 to train on the uniform D_ref dataset only 
 ```
@@ -93,6 +95,7 @@ python train_LP.py --shuffle --batch_size 8 --parallel --num_G_accumulations 1 -
 ```
 
 #6) (FairTL++) Perform Fine Tuning
+## Use `./BIGGAN/src/FairGAN++` for  our proposed work
 > Similarly select the new "./weights/###_copy0" weights and copy them into a new file e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob_Fine_tuning
 > Include --dummy 2 to train on the uniform D_ref dataset only 
 ```
