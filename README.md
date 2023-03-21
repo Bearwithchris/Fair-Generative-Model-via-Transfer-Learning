@@ -28,7 +28,7 @@ a) Train attribute classifier with CelebA (Single Attribute)
 ```
 python train_attribute_clf.py celeba ./results/celeba/attr_clf
 ```
-a) Train attribute classifier with CelebA (Multi Attribute)
+b) Train attribute classifier with CelebA (Multi Attribute)
 ```
 python train_attribute_clf.py celeba ./results/celeba/multi_clf -- multi=True
 ```
@@ -60,7 +60,7 @@ python train.py --shuffle --batch_size 128 --parallel --num_G_accumulations 1 --
 ```
 
 ## 3) FairTL and FairTL++
-3) To Train the Pre-trained Model for fairTL++ and fairTL
+### To Train the Pre-trained Model for fairTL++ and fairTL
 > Use `./BIGGAN/src/FairGAN++` for  our proposed work
 > Use --reweight 0 for regular traing on the reference + bias data
 > Select the perc setting e.g. {0.25,0.1,0.05,0.025}
