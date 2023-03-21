@@ -47,7 +47,7 @@ Note that the best density ratio classifier will be saved in its corresponding d
 
 
 #2) To Train the Baseline Model
-## Use `./BIGGAN/src/Base_imp_weight` for baseline and `./BIGGAN/src/FairGAN++` for our proposed work
+## Use `./BIGGAN/src/Base_imp_weight` for (Choi etal)
 > Use --reweight 1 for Choi et.al Importance-weights
 > Select the --perc setting e.g. {0.25,0.1,0.05,0.025}
 > Select the --bias settings e.g. {90_10,multi}, if you are testing multi you have to append --multi 1 for the model to reference the correct FD classifier
