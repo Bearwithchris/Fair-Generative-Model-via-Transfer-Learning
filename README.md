@@ -85,9 +85,9 @@ python train.py --shuffle --batch_size 8 --parallel --num_G_accumulations 1 --nu
 ```
 
 ### (FairTL++) Perform linear probing
-> Use `./BIGGAN/src/FairGAN++` for  our proposed work
-> To perform linear probing we select the new "./weights/###_copy0" pre-trained weights and copy them into a new file of your own naming choice e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob
-> Include --dummy 2 to train on the uniform D_ref dataset only 
+- Use `./BIGGAN/src/FairGAN++` for  our proposed work
+- To perform linear probing we select the new "./weights/###_copy0" pre-trained weights and copy them into a new file of your own naming choice e.g., celeba_90_10_perc1.0_pretrained_Linear_Prob
+- Include --dummy 2 to train on the uniform D_ref dataset only 
 ```
 python train_LP.py --shuffle --batch_size 8 --parallel --num_G_accumulations 1 --num_D_accumulations 1 \
 --num_D_steps 2 --G_lr 5e-4 --D_lr 2e-4 --dataset CA64 --data_root ../../data --G_ortho 0.0 --G_attn 0 \
